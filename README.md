@@ -1,4 +1,18 @@
 # github-stars
 
-An app to organise your GitHub Stars.
+An app to organize your GitHub Stars.
+
+## Getting Started
+
+Install dependencies.
+
+```bash
+$ npm install
+```
+
+Start app.
+
+```
+$ npm start
+```
 

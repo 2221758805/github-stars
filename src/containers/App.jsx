@@ -17,23 +17,23 @@ import style from './App.less';
 
 class App extends Component {
   render() {
-    const { user, stars, uistate, actions, detail, filteredStars } = this.props;
+    const { user, stars, headers, readme, actions, detail, filteredStars } = this.props;
     if (!user.login) {
       return <Login actions={actions}
-                    loginErrorMsg={uistate.loginErrorMsg}
-                    loginLoading={uistate.loginLoading} />;
+                    loginErrorMsg={user.loginErrorMsg}
+                    loginLoading={user.loginLoading} />;
     }
 
     return (<div className={style.normal}>
-      <Header uistate={uistate} actions={actions} />
+      <Header syncLoading={stars.syncLoading} syncStatus={stars.syncStatus} actions={actions} />
       <div className={style.mainSection}>
         <Sidebar userInfo={user.userInfo} starsCount={stars.data.length} actions={actions} />
         <Stars filteredStars={filteredStars}
                selectedStarId={stars.selectedStarId}
                actions={actions}
         />
-        <Detail unstarLoading={uistate.unstarLoading}
-                readmeLoading={uistate.readmeLoading}
+        <Detail unstarLoading={stars.unstarLoading}
+                readmeLoading={readme.readmeLoading}
                 repo={detail.repo}
                 readme={detail.readme}
                 actions={actions}

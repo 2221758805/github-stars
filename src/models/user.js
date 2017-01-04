@@ -1,3 +1,4 @@
+import * as GithubAPI from '../services/github';
 
 export default {
   namespace: 'user',

@@ -50,8 +50,9 @@ export default {
     },
   },
   effects: {
-    *sync(action, { put }) {
-      if (getState().stars.syncAllFinished) {
+    *sync(action, { select, put }) {
+      const syncAllFinished = yield select(state => state.stars.syncAllFinished);
+      if (syncAllFinished) {
         yield put({ type: 'syncUpdate' });
       } else {
         yield put({ type: 'syncAll' });
@@ -125,7 +126,7 @@ export default {
         payload: data,
       });
     },
-    *select({ payload: { id, repo }}, put) {
+    *select({ payload: { id, repo }}, { put }) {
       yield put({
         type: 'select/save',
         payload: id,

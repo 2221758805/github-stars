@@ -43,7 +43,7 @@ class Detail extends Component {
           }
         </div>
         <div className={style.clone}>
-          Clone: <input textselect value={`git@github.com:${repo}.git`} readOnly onClick={this.handleInputClick} />
+          Clone: <input value={`git@github.com:${repo}.git`} readOnly onClick={this.handleInputClick} />
         </div>
       </div>
       <div className={style.readme}>

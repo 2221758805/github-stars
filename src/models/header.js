@@ -12,22 +12,21 @@ export default {
   state: {},
   reducers: {
     'search/save' (state, action) {
-      return {...state, keyword: action.payload};
+      return {...state, keyword: action.payload };
     },
   },
   effects: {
-    search: watcher(function*({take, cancel}) {
+    search: watcher(function*({put, call, take, cancel, fork}) {
       function* headerSearchSet(query) {
         try {
           yield call(delay, 300);
           yield put({
-            type: 'header/search/save',
+            type: 'search/save',
             payload: query,
           });
         } catch(e) {
-          if(!isCancelError(e)) {
-            // eslint-disable-line
-          }
+          // eslint-disable-line
+          console.error(e);
         }
       }
 

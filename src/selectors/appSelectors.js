@@ -1,16 +1,16 @@
 import marked from 'marked';
 import { createSelector } from 'reselect';
 
+const headerSelector = state => state.header;
 const starsSelector = state => state.stars;
 const readmeSelector = state => state.readme;
-const uistateSelector = state => state.uistate;
 const userSelector = state => state.user;
 
 const filteredStarsSelector = createSelector([
   starsSelector,
-  uistateSelector,
-], (stars, uistate) => {
-  const keyword = uistate.keyword;
+  headerSelector,
+], (stars, header) => {
+  const keyword = header.keyword;
   let ret = stars.data;
   if (keyword) {
     ret = ret.filter(item => {
@@ -48,7 +48,6 @@ const detailSelector = createSelector([
 export default createSelector([
   starsSelector,
   readmeSelector,
-  uistateSelector,
   userSelector,
   filteredStarsSelector,
   detailSelector,

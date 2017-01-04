@@ -17,7 +17,7 @@ class Header extends Component {
     this.props.actions.headerSearch(e.target.value);
   }
   render() {
-    const { syncLoading, syncStatus } = this.props.uistate;
+    const { syncLoading, syncStatus } = this.props;
     return (<div className={style.normal}>
       <div className={style.brand}>
         <h1>GithubStars</h1>

@@ -11,6 +11,11 @@ const app = dva({
   },
 });
 
+app.model(require('./models/header'));
+app.model(require('./models/user'));
+app.model(require('./models/stars'));
+app.model(require('./models/readme'));
+
 app.router(require('./router'));
 
 app.start('#root');

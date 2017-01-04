@@ -52,11 +52,10 @@ export default createSelector([
   userSelector,
   filteredStarsSelector,
   detailSelector,
-], (stars, readme, uistate, user, filteredStars, detail) => {
+], (stars, readme, user, filteredStars, detail) => {
   return {
     stars,
     readme,
-    uistate,
     user,
     filteredStars,
     detail,

@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import fetch from 'dva/fetch';
 
 function parseLink(str) {
   const ret = {};

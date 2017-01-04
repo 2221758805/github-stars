@@ -21,6 +21,34 @@ export default {
       return {...state, ...action.payload, login: true, loginErrorMsg: '' };
     },
   },
-  effects: {},
+  effects: {
+    *login(action, { put }) {
+      yield put({
+        type: 'login/start',
+      });
+
+      const { username, password } = action.payload;
+      const userInfo = yield GithubAPI.fetchUser(username, password);
+
+      if (userInfo.message) {
+        yield put({
+          type: 'login/error',
+          payload: userInfo.message,
+        });
+      } else {
+        yield put({
+          type: 'login/success',
+          payload: {username, password, userInfo},
+        });
+        yield put({
+          type: 'stars/sync',
+        });
+      }
+
+      yield put({
+        type: 'login/end',
+      });
+    },
+  },
   subscriptions: {},
 };

@@ -12,6 +12,7 @@
     "normalize.css": "^3.0.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "redux-actions": "^1.2.0",
     "reselect": "^2.0.3",
     "transform-runtime": "^0.0.0"
   },
